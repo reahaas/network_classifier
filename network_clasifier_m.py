@@ -1,7 +1,7 @@
 import csv
 
 from final_classification_picker import get_final_classifications
-from single_communication_clasifier import get_single_classifications
+from single_communication_clasifier import get_single_classifications_for_all_communication
 
 # todo: define as class and extract to other file.
 # global objects:
@@ -53,7 +53,7 @@ def network_classifier(communications_file, rules_file, final_classification_fil
     communications = read_csv_file(communications_file)
     rules = read_csv_file(rules_file)
     
-    single_classifications = get_single_classifications(communications, rules)
+    single_classifications = get_single_classifications_for_all_communication(communications, rules)
     
     final_classifications = get_final_classifications(single_classifications, devices)
     
