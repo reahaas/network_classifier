@@ -1,6 +1,11 @@
+from rule_matcher import rule_types_matcher
+
+
 def communication_match_rule(communication, rule):
-    # todo implement
-    return True
+    rule_type = rule.type
+    rule_match_checker = rule_types_matcher[rule_type]
+    
+    return rule_match_checker(communication, rule)
 
 
 def build_classification(communication, rule):
