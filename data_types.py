@@ -4,4 +4,4 @@ Communication = namedtuple("Communication", "id timestamp device_id protocol_nam
 
 Rule = namedtuple("Rule", "id type argument classification")
 
-Classification = namedtuple("Classification", "id device_id classification")
+Classification = namedtuple("Classification", "id device_id classification rule_id")
