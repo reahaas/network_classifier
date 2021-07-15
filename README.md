@@ -2,6 +2,8 @@
 Hi! Network Classifier was really fun.
 
 # Design
+![image](https://user-images.githubusercontent.com/35425887/125861734-1efa9c37-2a65-4cc0-b4e0-42eee559cfbd.png)
+
 [Network Classifier design.pdf](https://github.com/reahaas/network_classifier/files/6826330/Network.Classifier.design.pdf)
 
 # Tests
