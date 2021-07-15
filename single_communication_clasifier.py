@@ -23,7 +23,7 @@ def get_classifications(communication, rules):
     return classifications
 
 
-def get_single_classifications(communications, rules):
+def get_single_classifications_for_all_communication(communications, rules):
     """
 
     :param list(tuple) communications:
