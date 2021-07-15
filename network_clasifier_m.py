@@ -1,5 +1,6 @@
 import csv
 
+from data_types import Communication, Rule
 from final_classification_picker import get_final_classifications
 from single_communication_clasifier import get_single_classifications_for_all_communication
 
@@ -13,11 +14,22 @@ devices = {}
 single_classifications = {}
 
 
-def read_csv_file(file_path):
+def read_csv_file_as_data_type(file_path, data_type):
+    """
+
+    :param file_path:
+    :param class data_type: namedtuple class type, to convert the data to.
+    :return list(namedtuple):
+    """
     with open(file_path, newline='') as f:
         reader = csv.reader(f)
         data = list(reader)
-    return data
+
+    data_type_list = []
+    for line in data:
+        data_type_list += data_type(line)
+
+    return data_type_list
 
 
 def write_csv_file(final_classification_file, final_classifications):
@@ -49,9 +61,27 @@ def report_final_classifications(final_classifications, final_classification_fil
     write_csv_file(final_classification_file, final_classifications)
 
 
+def read_communications_file(communications_file):
+    """
+
+    :param communications_file:
+    :return list(Communication):
+    """
+    return read_csv_file_as_data_type(communications_file, Communication)
+
+
+def read_communications_file(rules_file):
+    """
+
+    :param rules_file:
+    :return list(Rule):
+    """
+    return read_csv_file_as_data_type(rules_file, Rule)
+    
+
 def network_classifier(communications_file, rules_file, final_classification_file):
-    communications = read_csv_file(communications_file)
-    rules = read_csv_file(rules_file)
+    communications = read_communications_file(communications_file)
+    rules = read_csv_file_as_data_type(rules_file)
     
     single_classifications = get_single_classifications_for_all_communication(communications, rules)
     
