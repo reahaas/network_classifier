@@ -1,2 +1,2 @@
-def get_final_classifications(single_clasifications, devices):
+def get_final_classifications(single_classifications, devices):
     return {}

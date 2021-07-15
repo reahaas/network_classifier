@@ -27,7 +27,7 @@ def write_csv_file(final_classification_file, final_classifications):
     :param list(dict) final_classifications:
     """
     output_file = final_classification_file
-
+    
     if not single_classifications:
         with open(output_file, "w") as my_empty_csv:
             # now you have an empty file already
@@ -39,14 +39,13 @@ def write_csv_file(final_classification_file, final_classifications):
         dict_writer = csv.DictWriter(output_file, keys)
         dict_writer.writeheader()
         dict_writer.writerows(final_classifications)
-        
-    
 
-def report_final_clasifications(final_classifications, final_classification_file):
+
+def report_final_classifications(final_classifications, final_classification_file):
     # for debbuging
     print(final_classifications)
     print(f"Final classification count: {len(final_classifications)}")
-
+    
     write_csv_file(final_classification_file, final_classifications)
 
 
@@ -54,8 +53,8 @@ def network_classifier(communications_file, rules_file, final_classification_fil
     communications = read_csv_file(communications_file)
     rules = read_csv_file(rules_file)
     
-    single_clasifications = get_single_classifications(communications, rules)
+    single_classifications = get_single_classifications(communications, rules)
     
-    final_clasifications = get_final_classifications(single_clasifications, devices)
+    final_classifications = get_final_classifications(single_classifications, devices)
     
-    report_final_clasifications(final_clasifications, final_classification_file)
+    report_final_classifications(final_classifications, final_classification_file)
